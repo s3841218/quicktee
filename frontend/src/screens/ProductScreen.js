@@ -1,21 +1,34 @@
 import './ProductScreen.css';
+import axios from 'axios';
+import { useState, useEffect } from "react"
+import { useParams } from "react-router-dom"
 
 const ProductScreen = () => {
+    const [product, setProduct] = useState()
+    const { id } = useParams()
+
+    useEffect(() => {
+        axios.get("http://localhost:5000/items")
+        .then(items => items.data)
+        .then(items => setProduct(items[id]))
+    }, [id])
+
     return (
         <div className="productscreen">
             <div className="productscreen__left">
                 <div className="left__image">
-                <img src="https://a1ccimages.s3.ap-southeast-2.amazonaws.com/istockphoto-1328049157-170667a.jpg" alt="tshirt" />
+                {/* <img src="https://a1ccimages.s3.ap-southeast-2.amazonaws.com/istockphoto-1328049157-170667a.jpg" alt="tshirt" /> */}
+                <img src={product?.imageUrl} alt="product" />
         
             </div>
             <div className="left__info">
-                <p className="left__name">Product 1</p>
-                <p>Price: $4.99</p>
-                <p>Description: Lorem Ipsum</p>
+                <p className="left__name">{product?.name}</p>
+                <p>Price: ${product?.price}</p>
+                <p>Description: {product?.description}</p>
             </div>
             <div className="productscreen__right">
                 <div className="right__info">
-                    <p>Price: <span>$4.99</span></p>
+                    <p>Price: <span>${product?.price}</span></p>
                     <p>Quantity: 
                         <select>
                         <option value="1">1</option>
@@ -26,7 +39,9 @@ const ProductScreen = () => {
                         </select></p>
                     
                     <p>
-                        <button type="button">Add to cart</button>
+                        <button type="button" onClick={ () => {
+
+                        }}>Add to cart</button>
                     </p>
                 </div>
             </div>
