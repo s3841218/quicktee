@@ -8,7 +8,7 @@ const HomeScreen = () => {
     const [allItems, setAllItems] = useState()
 
     useEffect(() => {
-        axios.get("http://localhost:5000/items")
+        axios.get("http://testapp-env.eba-rxqfwqda.ap-southeast-2.elasticbeanstalk.com/items")
         .then(items => items.data)
         .then(items => setAllItems(items))
     }, [])
