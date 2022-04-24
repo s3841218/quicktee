@@ -11,6 +11,9 @@ const Navbar = () => {
 
         </Link>
       </div>
+      <div className="navbar__logoi">
+      <img src="https://d3pxaao18trqow.cloudfront.net/11808fa8f7cd406cad4bf8c6ffdc7366.png" alt="logo" />
+      </div>
 
       <ul className="navbar__links">
         <li>

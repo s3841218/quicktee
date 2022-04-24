@@ -15,3 +15,7 @@
     grid-template-columns: repeat(3, 1fr);
 }
 
+.socials__fbtw {
+    margin-top: 3rem;
+}
+
