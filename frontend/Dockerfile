@@ -1,3 +1,6 @@
+# code adapted from
+# [12]R. Schachte, "simple-engineer-aws-deployment-tutorial/Dockerfile at master · Schachte/simple-engineer-aws-deployment-tutorial", GitHub, 2022. [Online]. Available: https://github.com/Schachte/simple-engineer-aws-deployment-tutorial/blob/master/Dockerfile. [Accessed: 23- Apr- 2022].
+
 FROM node:16-alpine as build
 WORKDIR '/app'
 COPY package*.json ./
